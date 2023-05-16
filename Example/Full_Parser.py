@@ -60,18 +60,11 @@ filename = 'D:/OneDrive - IIT Kanpur/College/Project Things/Prof. Pragrati Subra
 all_sheets = pd.read_excel(filename, sheet_name=None, skiprows=[0])
 df=pd.concat(all_sheets, axis=1)
 
-# for l in range(0, len(df.columns)): 
-#         print(df.columns[l], l)
-# print()
-
 # Indexes going from 22 to 213(required)
 #
 df.drop(df.columns[[22, 23, 24, 25, 122, 123, 124, 125]], axis=1, inplace=True)
 df=df.drop(df.index[range(125,176)])
 
-# for l in range(0, len(df.columns)): 
-#         print(df.columns[l], l)
-# print()
 
 #Sorts according to patients and gender
 df.sort_values(by=[('Patient_Record', 'Gender'),('Patient_Record', 'Patients/\nHealthy'), ('Patient_Record', 'Age')], ascending=[True, False, True], inplace=True)
@@ -115,7 +108,7 @@ for i in range(0, 192): #192
 
 #-------------------------------------------------#
 
-#Creates array for pvalues and all
+#Creates array of values
 #P(31, 127); G(39, 135); W(47, 143); T(68, 164); H(86, 182); M(117, 213)
 
 rows, cols=(6,3)
@@ -148,7 +141,7 @@ j=0
 # print(paired_test)
 
 #-------------------------------------------------#\
-#Medecine Anlaysis
+#Anlaysis 2
 #collumn number 9, ('Patient_Record', 'Medecine Group')
 check_nan=df[('Patient_Record', 'Medecine Group')].isnull()
 df2=df
